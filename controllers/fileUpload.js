@@ -44,6 +44,7 @@ const uploadFileToCloudinary = async (file, folder, quality) => {
     }
 
     options.resource_type = "auto";
+
     return await cloudinary.uploader.upload(file.tempFilePath, options);
 
 }
@@ -163,7 +164,7 @@ exports.imageReduceUpload = async (req, res) => {
 
         //Validation
 
-        const supportedTypes = ["mp4", "mov"];
+        const supportedTypes = ["jpg", "jpeg", "png"];
         const fileType = file.name.split(".")[1].toLowerCase();
         // const fileSizeLimit = 4194304;
 
@@ -176,7 +177,7 @@ exports.imageReduceUpload = async (req, res) => {
 
         //Response Cloudinary Functions
 
-        const response = await uploadFileToCloudinary(file, "SuyogMedia", 90);
+        const response = await uploadFileToCloudinary(file, "SuyogMedia", 30);
         console.log(response);
 
         //DB Entry Save
