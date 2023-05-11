@@ -3,7 +3,6 @@ const express = require("express");
 const app = express();
 
 
-
 //PORT find karna
 require("dotenv").config();
 const PORT = process.env.PORT || 4000;
@@ -19,7 +18,6 @@ app.use(fileupload({
 ));
 
 //DB Connect
-
 const db = require("./config/database");
 db.connect();
 
